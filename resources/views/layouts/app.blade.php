@@ -16,6 +16,10 @@
     @yield('content')
 
     @livewireScripts
+
+    <script>
+        // console.log("sfd");
+    </script>
     @yield('script')
 </body>
 </html>
