@@ -7,6 +7,11 @@ return [
     /*
      * Set a custom dashboard configuration
      */
+
+     'allowed_origins' => [
+        'http://localhost:5175', // پورت و URL پروژه شما
+    ],
+
     'dashboard' => [
         'port' => env('LARAVEL_WEBSOCKETS_PORT', 6001),
     ],
@@ -128,6 +133,8 @@ return [
          * Passphrase for your local_cert file.
          */
         'passphrase' => env('LARAVEL_WEBSOCKETS_SSL_PASSPHRASE', null),
+
+        'verify_peer' => false, 
     ],
 
     /*

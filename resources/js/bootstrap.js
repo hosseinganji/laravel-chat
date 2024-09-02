@@ -31,14 +31,27 @@ window.Pusher = Pusher;
 //     disableStats: true,
 // });
 window.Echo = new Echo({
+    // broadcaster: 'pusher',
+    // key: import.meta.env.VITE_PUSHER_APP_KEY,
+    // cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+    // wsHost: import.meta.env.VITE_PUSHER_HOST || window.location.hostname,
+    // wsPort: import.meta.env.VITE_PUSHER_PORT || 6001,
+    // forceTLS: false, // SSL فعال نیست، از ws:// استفاده کنید
+    // disableStats: true,
+
     broadcaster: 'pusher',
-    key: import.meta.env.VITE_PUSHER_APP_KEY, // Ensure this matches the key in the .env file
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER || 'mt1',
-    wsHost: import.meta.env.VITE_PUSHER_HOST || window.location.hostname,
-    wsPort: import.meta.env.VITE_PUSHER_PORT || 6001,
-    forceTLS: import.meta.env.VITE_PUSHER_SCHEME === "https",
+    key: process.env.VITE_PUSHER_APP_KEY,
+    cluster: process.env.VITE_PUSHER_APP_CLUSTER,
+    wsHost: 'blogsockettest.test',
+    wsPort: 6001,
+    forceTLS: false,
     disableStats: true,
 });
+
+
+
+
+
 
 Pusher.logToConsole = true
 
