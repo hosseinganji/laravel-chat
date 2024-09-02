@@ -8,7 +8,7 @@ import 'bootstrap';
 import axios from 'axios';
 window.axios = axios;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -17,36 +17,23 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 */
 
 import Echo from 'laravel-echo';
-
 import Pusher from 'pusher-js';
+
 window.Pusher = Pusher;
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: import.meta.env.VITE_PUSHER_APP_KEY,
-//     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER || 'mt1',
-//     wsHost: import.meta.env.VITE_PUSHER_HOST || window.location.hostname,
-//     wsPort: import.meta.env.VITE_PUSHER_PORT || 6001,
-//     forceTLS: import.meta.env.VITE_PUSHER_SCHEME === "https",
-//     disableStats: true,
-// });
-window.Echo = new Echo({
-    // broadcaster: 'pusher',
-    // key: import.meta.env.VITE_PUSHER_APP_KEY,
-    // cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-    // wsHost: import.meta.env.VITE_PUSHER_HOST || window.location.hostname,
-    // wsPort: import.meta.env.VITE_PUSHER_PORT || 6001,
-    // forceTLS: false, // SSL فعال نیست، از ws:// استفاده کنید
-    // disableStats: true,
 
+
+
+window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: process.env.VITE_PUSHER_APP_KEY,
-    cluster: process.env.VITE_PUSHER_APP_CLUSTER,
-    wsHost: 'blogsockettest.test',
-    wsPort: 6001,
-    forceTLS: false,
+    key: import.meta.env.VITE_PUSHER_APP_KEY,
+    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER || 'mt1',
+    wsHost: window.location.hostname,
+    wsPort: import.meta.env.VITE_PUSHER_PORT || 6002,
+    forceTLS: import.meta.env.VITE_PUSHER_SCHEME === "https",
     disableStats: true,
 });
+
 
 
 
